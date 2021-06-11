@@ -1,5 +1,5 @@
-import ExternalApi from "./external-api";
+import League from "./league";
 import Home from "./home";
 import Profile from "./profile";
 
-export { ExternalApi, Home, Profile };
+export { League, Home, Profile };

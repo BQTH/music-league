@@ -12,6 +12,9 @@
   right: 0;
 }
 
+body{
+  background-color: #292929;
+}
 
 #app{
   background-color: #292929;
@@ -24,12 +27,13 @@
   background-color: #4A4A4A;
   position: fixed;
   bottom: 10px;
-  left: 20px;
-  right: 20px;
+  left: 15px;
+  right: 15px;
   border-radius: 5px;
   height: 50px;
   display: inline-block;
   text-align: center;
+  z-index: 10;
 }
 
 .bottom-nav-icons{
@@ -47,4 +51,42 @@ a:hover{
 
 a.active{
   color: #FEA628 !important;
+}
+
+.PlaylistCard{
+  background-color: #3C3C3C;
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.PlaylistCover{
+  width: 60px;
+  border-radius: 5px; 
+}
+
+p{
+  margin: 0 !important;
+}
+
+.StartBtn{
+  background-color: #FEA628;
+  z-index: 11;
+  position: fixed;
+  bottom: 70px;
+  left: 15px;
+  right: 15px;
+  text-align: center;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.StartBtn h3{
+  margin-top: 10px;
+  font-size: 20px;
 }

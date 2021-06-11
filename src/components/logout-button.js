@@ -7,7 +7,7 @@ const LogoutButton = () => {
     const {logout} = useAuth0();
     return(
         <li className="nav-text" onClick = {() => logout()}
-        ><a><FiLogOut/><span>Log Out</span></a> </li>
+        ><FiLogOut/><span>Log Out</span></li>
     )
 }
 

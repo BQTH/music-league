@@ -11,20 +11,26 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: "Landmarks",
-        path: '/landmarks',
+        title: "Statistics",
+        path: '/statistics',
         icon: <FaIcons.FaLandmark/>,
         cName: 'nav-text'
     },
     {
-        title: "Walkingbuddies",
+        title: "Music league",
         path: '/walkingbuddies',
         icon: <FaIcons.FaUserFriends/>,
         cName: 'nav-text'
     },
     {
-        title: "Redeemstores",
-        path: '/redeemstores',
+        title: "Settings",
+        path: '/settings',
+        icon: <MdIcons.MdRedeem/>,
+        cName: 'nav-text'
+    },
+    {
+        title: "Profile",
+        path: '/profile',
         icon: <MdIcons.MdRedeem/>,
         cName: 'nav-text'
     }

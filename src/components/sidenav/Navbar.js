@@ -8,6 +8,7 @@ import './navbar.css'
 import {IconContext} from 'react-icons' 
 import LogoutButton from "../logout-button"
 import LoginButton from "../login-button"
+import Logo from './logo/musiclogo.png'
 
 const AuthNav = () => {
 
@@ -30,6 +31,8 @@ function Nav2() {
         <>
         <IconContext.Provider value={{color: '#fff'}}>
           <div className="Navbar">
+              <img style={{width: '30px', marginLeft: "20px"}} src={Logo} alt="" />
+              <h4>Music league</h4>
             <Link to='#' className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar}/>
             </Link> 
