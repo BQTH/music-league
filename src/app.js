@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div id="app">
       <NavBar />
-     
+      <div className="content">
       <SideNav/>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/kickassmetal" component={Kickassmetal} />
         </Switch>
         <StartSessionBtn />
+        </div>
     </div>
   );
 };

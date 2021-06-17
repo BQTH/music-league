@@ -45,7 +45,7 @@ const League = () => {
 
 
   return (
-    <div className="container">
+   <div className="container">
       <h3>Leagues</h3>
       {playlists.map(playlist =>
         <div className="PlaylistCard">
@@ -64,7 +64,7 @@ const League = () => {
         </div>
 
       )}
-    </div>
+      </div>
   );
 };
 

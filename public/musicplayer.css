@@ -1,0 +1,6 @@
+#musicplayer{
+    left: 0;
+    top: 100px;
+    position: fixed;
+    z-index: -1;
+}
