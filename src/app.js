@@ -6,6 +6,7 @@ import { Home, Profile, League } from "./views";
 import "./app.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Kickassmetal from './views/kickassmetal'
+import MusicPlayer from './views/MusicPlayer'
 import SideNav from './components/sidenav/Navbar';
 import StartSessionBtn from "./components/sessionbtn/StartSessionBtn";
 
@@ -20,13 +21,14 @@ const App = () => {
   return (
     <div id="app">
       <NavBar />
-      <div className="content">
+      <div style={{zIndex: "2"}} className="content">
       <SideNav/>
         <Switch>
           <Route path="/" exact component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
           <Route path="/league" component={League} />
           <Route path="/kickassmetal" component={Kickassmetal} />
+          <Route path="/player" component={MusicPlayer} />
         </Switch>
         <StartSessionBtn />
         </div>

@@ -1,6 +1,120 @@
-#musicplayer{
-    left: 0;
-    top: 100px;
-    position: fixed;
-    z-index: -1;
-}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  } */
+  
+  #container{
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+    text-align: center;
+  }
+  
+  #progress-container{
+    background: #ededed;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    height: 4px;
+    max-width: 75%;
+  
+  }
+  
+  #progressbar{
+    background-color: var(--geel);
+    border-radius: 5px;
+    height: 100%;
+    /* width: 50%; */
+    transition: width 0.1s linear;
+    
+  }
+  
+  
+  h1, h2, h3, p {
+    font-family: 'Roboto Regular';
+    color: white;
+  }
+  
+  .statsLabel, .statsInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .label{
+    color: var(--geel);
+    padding: 0 8px;
+    margin: 0;
+  }
+  .info{
+      margin: 0;
+  }
+  
+  .img-container img{
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+  }
+  
+  .music-info{
+    margin: 20px 0;
+  }
+  
+  .musicBtn, .favBtn{
+    background:none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .musicBtn i{
+    font-size: 1.5rem;
+  }
+  .bigBtn i{
+    font-size: 2rem;
+  }
+  
+  .btn:hover{
+    background: #121212;
+  }
+  
+  #title{
+    font-size: 24px;
+    box-shadow: 10px;
+  }
+  
+  .favorite{
+    margin: 10px;
+  }
+  
+  
+  .favBtn i{
+    font-size: 2rem;
+  }
+  
+  .music-nav{
+    margin-bottom: 30px;
+  }
+  
+  .startstop{
+    background: var(--geel);
+    color: var(--secundair);
+  font-family: 'Neo Sans Bold';
+  }
+  .startstop:hover, .startstop:active, .startstop:focus{
+   background-color: var(--geel) !important;
+  }
+  .musicBtn:active, .musicBtn:focus{
+  background-color: rgba(0, 0, 0, 0) !important;
+  }
+
+  :root{
+    --geel:#fdc623;
+    --secundair: #323232;
+ }
+
+ * {
+    box-sizing: border-box;
+  }
+
+  
