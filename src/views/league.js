@@ -1,70 +1,56 @@
 import React, { useState, useEffect } from "react";
-import { Credentials } from './../components/spotify/Credentials';
 import axios from 'axios';
+import Cookies from 'js-cookie'
 
 const League = () => {
 
-  const spotify = Credentials();
-
-  const [token, setToken] = useState('');
+  // const spotify = Credentials();
   const [playlists, setPlaylist] = useState([]);
+  const [userid, setuserid] = useState([]);
 
-  console.log('loading')
-  console.log(token)
-  console.log()
+  const token = Cookies.get('spotifyAuthToken')
 
-  useEffect(() => {
 
-    axios('https://accounts.spotify.com/api/token', {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)
-      },
-      data: 'grant_type=client_credentials',
-      method: 'POST'
-    })
-      .then(tokenResponse => {
-        console.log(tokenResponse.data.access_token)
-        setToken(tokenResponse.data.access_token)
+  axios('https://api.spotify.com/v1/me', {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + token }
+  })
+    .then(IdResponse => {
+      setuserid(IdResponse.data.id);
+      const Userid = IdResponse.data.id;
+      const link = 'https://api.spotify.com/v1/users/' + Userid + '/playlists'
+      axios(link, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + token }
+      })
+        .then(PlaylistResponse => {
 
-        axios('https://api.spotify.com/v1/browse/categories/metal/playlists?limit=50', {
-          method: 'GET',
-          headers: { 'Authorization': 'Bearer ' + tokenResponse.data.access_token }
+          console.log(PlaylistResponse.data.items)
+          setPlaylist(PlaylistResponse.data.items);
         })
-          .then(PlaylistResponse => {
-
-            setPlaylist(PlaylistResponse.data.playlists.items)
-
-
-          })
-
-
-      });
-
-  }, []);
-
+    })
 
   return (
-  
+
     <div className="container">
       <h3>Leagues</h3>
       {playlists.map(playlist =>
         <div className="PlaylistCard">
           <a href="/kickassmetal">
-          <div className="row">
-            <div className="col">
-              <img className="PlaylistCover" src={playlist.images[0].url} alt="" />
+            <div className="row">
+              <div className="col">
+                <img className="PlaylistCover" src={playlist.images[0].url} alt="" />
+              </div>
+              <div className="col-9">
+                <h6 style={{ opacity: "50%" }}>PLAYLIST</h6>
+                <h6> {playlist.name} </h6>
+              </div>
             </div>
-            <div className="col-9">
-              <h6 style={{opacity: "50%"}}>PLAYLIST</h6>
-              <h6> {playlist.name} </h6>
-            </div>
-          </div>
           </a>
         </div>
 
       )}
-      </div>
+    </div>
   );
 };
 
