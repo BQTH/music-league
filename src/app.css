@@ -1,3 +1,12 @@
+:root{
+  --geel:#fdc623;
+    --secundair: #323232;
+}
+
+@font-face{
+  font-family: 'Neo Sans Bold';
+  src: url('fonts/neo_sans_bold.ttf');
+}
 
 .spinner {
   position: absolute;
@@ -13,17 +22,17 @@
 }
 
 body{
-  background-color: #292929;
+  background-color: #121212;
 }
 
 #app{
-  background-color: #292929;
+  background-color: #121212;
   width: 100vw;
   color: whitesmoke;
 }
 
 .nav{
-  background-color: #4A4A4A;
+  background-color: var(--secundair);
   position: fixed;
   bottom: 10px;
   left: 15px;
@@ -45,11 +54,11 @@ a{
 }
 
 a:hover{
-  color: #FEA628;
+  color: var(--geel);
 }
 
 a.active{
-  color: #FEA628 !important;
+  color: var(--geel) !important;
 }
 
 .PlaylistCard{
@@ -78,7 +87,7 @@ a svg, li svg{
 }
 
 .StartBtn{
-  background-color: #FEA628;
+  background-color: var(--geel);
   z-index: 9;
   position: fixed;
   bottom: 70px;
@@ -87,9 +96,16 @@ a svg, li svg{
   text-align: center;
   border-radius: 5px;
   height: 50px;
+  
 }
 
 .StartBtn h3{
   margin-top: 10px;
   font-size: 20px;
+  color: var(--secundair);
+  font-family: 'Neo Sans Bold';
+}
+
+h6{
+  font-family: 'Neo Sans Bold';
 }
