@@ -1,37 +1,38 @@
 import React from 'react'
-import * as FaIcons from 'react-icons/fa'
-import * as AiIcons from 'react-icons/ai'
-import * as MdIcons from 'react-icons/md'
+import { IconContext } from "react-icons";
+import { FaHome, FaMedal, FaUserAlt } from 'react-icons/fa';
+import { IoIosStats, IoIosSettings } from 'react-icons/io';
+import { SiApplemusic } from 'react-icons/si';
 
 export const SidebarData = [
     {
         title: "Home",
         path: '/',
-        icon: <AiIcons.AiFillHome/>,
+        icon: <FaHome />,
         cName: 'nav-text'
     },
     {
         title: "Statistics",
         path: '/statistics',
-        icon: <FaIcons.FaLandmark/>,
+        icon: <IoIosStats/>,
         cName: 'nav-text'
     },
     {
         title: "Music league",
-        path: '/walkingbuddies',
-        icon: <FaIcons.FaUserFriends/>,
-        cName: 'nav-text'
-    },
-    {
-        title: "Settings",
-        path: '/settings',
-        icon: <MdIcons.MdRedeem/>,
+        path: '/league',
+        icon: <FaMedal/>,
         cName: 'nav-text'
     },
     {
         title: "Profile",
         path: '/profile',
-        icon: <MdIcons.MdRedeem/>,
+        icon: <FaUserAlt/>,
+        cName: 'nav-text'
+    },
+    {
+        title: "Settings",
+        path: '/settings',
+        icon: <IoIosSettings/>,
         cName: 'nav-text'
     }
 ]

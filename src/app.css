@@ -73,9 +73,13 @@ p{
   margin: 0 !important;
 }
 
+a svg, li svg{
+  margin-right: 10px;
+}
+
 .StartBtn{
   background-color: #FEA628;
-  z-index: 11;
+  z-index: 9;
   position: fixed;
   bottom: 70px;
   left: 15px;

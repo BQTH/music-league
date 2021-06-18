@@ -13,3 +13,16 @@ Run the project:
 ```bash
 yarn start
 ```
+
+
+
+
+
+
+
+
+
+ <SpotifyApiContext.Provider value={token}>
+            {/* Your Spotify Code here */}
+            <p>You are authorized with token: {token}</p>
+          </SpotifyApiContext.Provider>
