@@ -26,10 +26,14 @@ const App = () => {
     return <Loading />
   }
 
+  function openBleActivity(){
+    console.log("ble opent")
+  }
+
   const token = Cookies.get('spotifyAuthToken')
 
   return (
-    <div id="app">
+    <div onClick={openBleActivity()} id="app">
 
       <NavBar />
       <div style={{ zIndex: "2", marginTop: "70px" }} className="content">
@@ -49,7 +53,7 @@ const App = () => {
           <div style={{ marginTop: "100px" }}>
        {/* Display the login page*/}
             <SpotifyAuth
-              redirectUri='http://localhost:3000/'
+              redirectUri='https://music-league.vercel.app/'
               clientID={spotify.ClientId}
               scopes={['streaming', 'user-read-email', 'user-read-private', 'user-library-read', 'user-library-modify', 'user-read-playback-state', 'user-modify-playback-state']}
             />

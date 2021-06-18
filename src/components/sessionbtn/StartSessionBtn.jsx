@@ -6,7 +6,7 @@ function StartSession() {
 
 const StartSessionBtn = () => {
   return (
-      <div className="StartBtn" onClick={StartSession}>
+      <div className="StartBtn" onClick={StartSession()}>
         <h3>START SESSION</h3>
       </div>
   );
