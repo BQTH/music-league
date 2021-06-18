@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 import { NavBar, Loading, PrivateRoute } from "./components";
 import { Home, Profile, League } from "./views";
@@ -13,9 +13,8 @@ import { Credentials } from './components/spotify/Credentials';
 
 import Cookies from 'js-cookie'
 
-import { SpotifyAuth, Scopes } from 'react-spotify-auth'
+import { SpotifyAuth } from 'react-spotify-auth'
 import 'react-spotify-auth/dist/index.css'
-import { loadSpotifyPlayer } from "react-spotify-web-playback/lib/utils";
 
 const App = () => {
 

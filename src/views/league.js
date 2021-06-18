@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 import Cookies from 'js-cookie'
 
@@ -6,7 +6,6 @@ const League = () => {
 
   // const spotify = Credentials();
   const [playlists, setPlaylist] = useState([]);
-  const [userid, setuserid] = useState([]);
 
   const token = Cookies.get('spotifyAuthToken')
 
@@ -16,7 +15,6 @@ const League = () => {
     headers: { 'Authorization': 'Bearer ' + token }
   })
     .then(IdResponse => {
-      setuserid(IdResponse.data.id);
       const Userid = IdResponse.data.id;
       const link = 'https://api.spotify.com/v1/users/' + Userid + '/playlists'
       axios(link, {

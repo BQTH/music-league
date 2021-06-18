@@ -1,8 +1,6 @@
 import React from 'react'
-import { IconContext } from "react-icons";
 import { FaHome, FaMedal, FaUserAlt } from 'react-icons/fa';
 import { IoIosStats, IoIosSettings } from 'react-icons/io';
-import { SiApplemusic } from 'react-icons/si';
 
 export const SidebarData = [
     {

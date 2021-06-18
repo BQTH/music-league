@@ -53,10 +53,9 @@
 
 import React from 'react'
 import SpotifyPlayer from 'react-spotify-web-playback';
-import { SpotifyApiContext } from 'react-spotify-api'
 import Cookies from 'js-cookie'
 
-import { SpotifyAuth, Scopes } from 'react-spotify-auth'
+import { SpotifyAuth} from 'react-spotify-auth'
 import 'react-spotify-auth/dist/index.css'
 
 const App = () => {
