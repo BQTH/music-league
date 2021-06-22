@@ -51,44 +51,67 @@
 
 // export default League;
 
-import React from 'react'
+import React,{ useState, useEffect } from 'react'
 import SpotifyPlayer from 'react-spotify-web-playback';
 import Cookies from 'js-cookie'
-
-import { SpotifyAuth} from 'react-spotify-auth'
 import 'react-spotify-auth/dist/index.css'
+import axios from 'axios';
+
+var track_id = window.location.pathname.split('_')[2] 
+console.log(track_id)
+
+
+ 
 
 const App = () => {
+  var track_id = window.location.pathname.split('_')[2]
+  
   const token = Cookies.get('spotifyAuthToken')
+ // const spotify = Credentials();
+ const [playlists, setPlaylist] = useState([]);
+  //Gets playlist tracks by playlist id
+ useEffect(() => {
+  const token = Cookies.get('spotifyAuthToken')
+
+  var playlist_id = window.location.pathname.split('_')[1] 
+  console.log(playlist_id)
+
+  axios(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks?market=nl`, {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + token }
+  })
+    .then(PlaylistResponse => {
+      console.log(PlaylistResponse.data.items)
+      setPlaylist(PlaylistResponse.data.items);
+    })
+}, []);
+
+
+var track_uris = playlists.map(playlist => (`spotify:track:${playlist.track.id}`))
+var firstTrack = `spotify:track:${track_id}`
+//var trackuri = [newfirst].concat(track_uris)
+console.log(track_uris)
+
   return (
     <div className='spot'>
-      {token ? (
         <div>
-          <div style={{ position: "fixed", left: "15px", right: "15px" }}>
+          <div style={{ position: "fixed", left: "15px", right: "15px",  border: '10px solid #4A4A4A', borderRadius: "5px", borderBottom: "none"}}>
             <SpotifyPlayer
               token={token}
-              uris={['spotify:track:57J1mTeZcaTsmvZclU1Bcc', 'spotify:track:4aKWfvddjsBwIrb3KKLb4x']}
+              autoPlay={true}
+              uris={firstTrack}
               styles={{
                 activeColor: '#fff',
                 bgColor: '#4A4A4A',
                 color: '#fff',
                 loaderColor: '#fff',
-                sliderColor: '#FEA628',
+                sliderColor: '#fdc623',
                 trackArtistColor: '#ccc',
                 trackNameColor: '#fff',
               }}
             />
           </div>
         </div>
-      ) : (
-        // Display the login page
-        <SpotifyAuth
-          redirectUri='http://localhost:3000/player'
-          clientID='34f5a54a82b14f7097236783e32f4ded'
-          scopes={['streaming', 'user-read-email', 'user-read-private', 'user-library-read', 'user-library-modify', 'user-read-playback-state', 'user-modify-playback-state']} // either style will work
-        />
-      )}
-
     </div>
   )
 }

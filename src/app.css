@@ -109,3 +109,7 @@ a svg, li svg{
 h6{
   font-family: 'Neo Sans Bold';
 }
+
+div[role=presentation],.PlayerRSWP div {
+  border-radius: 5px !important;
+}
