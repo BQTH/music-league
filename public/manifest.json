@@ -1,6 +1,6 @@
 {
-  "short_name": "Walker",
-  "name": "Walker",
+  "short_name": "Music League",
+  "name": "Music League",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,7 +22,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#7a9e9f",
-  "background_color": "#fbf3e5",
+  "theme_color": "#323232",
+  "background_color": "#121212",
   "orientation": "portrait"
 }
