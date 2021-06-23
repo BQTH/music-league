@@ -2,7 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Cookies from 'js-cookie'
 
+var n = 1
+
 const League = () => {
+
+  function index() {
+    n++;
+  }
+
+  function resetIndex() {
+    n = 1;
+  }
 
   // const spotify = Credentials();
   const [playlists, setPlaylist] = useState([]);
@@ -32,12 +42,15 @@ const League = () => {
   return (
 
     <div className="container">
+      {resetIndex()}
       <h3>Leagues</h3>
+      <div className="Playlistlist" style={{padding:"10px", backgroundColor:"#424242"}}>
       {playlists.map(playlist =>
-        <div className="PlaylistCard" key={playlist.id}>
+        <div className="PlaylistCard" key={playlist.id} style={{marginBottom: "10px", backgroundColor:"#323232", paddingBottom:"10px"}}>
           <a href={`/standings_${playlist.id}`}>
             <div className="row">
               <div className="col">
+                <span style={{marginRight: "20px"}}>{n}</span>
                 <img className="PlaylistCover" src={playlist.images[0].url} alt="" />
               </div>
               <div className="col-9">
@@ -46,9 +59,11 @@ const League = () => {
               </div>
             </div>
           </a>
+          {index()}
         </div>
 
       )}
+      </div>
     </div>
   );
 };
