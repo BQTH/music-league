@@ -27,7 +27,8 @@ const App = () => {
     redirect = 'http://localhost:3000/'
   } else {
     console.log("This app is hosted!")
-    redirect = 'https://music-league.vercel.app/'
+    //redirect = 'https://music-league.vercel.app/'
+    redirect =  'https://10.0.2.2:3000/'
   }
 
   //Checks if the page is loading. If so, it will display a loading screen.
