@@ -1,3 +1,5 @@
+
+//gets spotify credentials from a .env file to be used throughout the app
 const Credentials = () => {
 
     return {

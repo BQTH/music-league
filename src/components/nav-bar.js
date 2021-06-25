@@ -5,10 +5,12 @@ import { FaHome, FaMedal } from 'react-icons/fa';
 import { IoIosStats } from 'react-icons/io';
 import { SiApplemusic } from 'react-icons/si';
 
+//Bottom navigation
 const NavBar = () => {
   return (
     <nav className="nav">
       <div className="row">
+        {/*With the context provider you can style mulitple icons easily*/}
       <IconContext.Provider value={{ className: "bottom-nav-icons" }}>
         <div className="col m3 s3">
           <RouterNavLink exact={true}  activeClassName="active" to="/"><FaHome /></RouterNavLink>

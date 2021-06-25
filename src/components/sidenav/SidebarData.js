@@ -2,6 +2,7 @@ import React from 'react'
 import { FaHome, FaMedal, FaUserAlt } from 'react-icons/fa';
 import { IoIosStats, IoIosSettings } from 'react-icons/io';
 
+//Contains all data for the sidenav menu items
 export const SidebarData = [
     {
         title: "Home",

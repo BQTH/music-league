@@ -10,6 +10,7 @@ import LogoutButton from "../logout-button"
 import LoginButton from "../login-button"
 import Logo from './logo/musiclogo.png'
 
+//This function desides which button is being displayed based on if the user is logged in or out.
 const AuthNav = () => {
 
     const { isAuthenticated } = useAuth0();
@@ -23,12 +24,15 @@ const AuthNav = () => {
 
 function Nav2() {
 
+    //start with nav bar closed
     const [sidebar, setSidebar] = useState(false);
 
+    //Every time this function runs the sidebar state wil alter between true or false / open or closed.
     const showSidebar = () => setSidebar(!sidebar)
 
     return (
         <>
+         {/*With the context provider you can style mulitple icons easily*/}
         <IconContext.Provider value={{color: '#fff'}}>
           <div className="Navbar">
               <img style={{width: '30px', marginLeft: "20px"}} src={Logo} alt="" />
@@ -44,6 +48,7 @@ function Nav2() {
                             <AiIcons.AiOutlineClose/>
                         </Link>
                     </li>
+                    {/* For every item in sidebar data print the following template */}
                     {SidebarData.map((item, index) => {
                         return(
                             <li key={index} className={item.cName}>
@@ -54,6 +59,7 @@ function Nav2() {
                             </li>
                         )
                     })}
+                    {/* Display the login or logout depending on auth status */}
                         <AuthNav/>
                 </ul>
             </nav> 

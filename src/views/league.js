@@ -6,10 +6,12 @@ var n = 1
 
 const League = () => {
 
+   //Count the songs and playlists to display the index
   function index() {
     n++;
   }
 
+  //Reset index when component is reloaded
   function resetIndex() {
     n = 1;
   }
@@ -19,7 +21,10 @@ const League = () => {
 
   //Gets the users id and then his followed playlists
   useEffect(() => {
+    //Get spotify API token
     const token = Cookies.get('spotifyAuthToken')
+
+    //get user playlists
     axios('https://api.spotify.com/v1/me', {
       method: 'GET',
       headers: { 'Authorization': 'Bearer ' + token }
@@ -45,6 +50,7 @@ const League = () => {
       {resetIndex()}
       <h3>Leagues</h3>
       <div className="Playlistlist" style={{padding:"10px", backgroundColor:"#424242"}}>
+         {/* Generate a card for every playlist or track with corresponding details */}
       {playlists.map(playlist =>
         <div className="PlaylistCard" key={playlist.id} style={{marginBottom: "10px", backgroundColor:"#323232", paddingBottom:"10px"}}>
           <a href={`/standings_${playlist.id}`}>

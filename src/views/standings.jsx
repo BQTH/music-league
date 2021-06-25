@@ -21,23 +21,28 @@ var n = 1;
 
 const League = () => {
 
+  //Count the songs and playlists to display the index
   function index() {
     n++;
   }
 
-  // const spotify = Credentials();
   const [playlists, setPlaylist] = useState([]);
 
+  // get playlist id from the url
   var playlist_id = window.location.pathname.split('_')[1]
   console.log(playlist_id)
 
   //Gets playlist tracks by playlist id
   useEffect(() => {
+
+    //Get spotify token from cookies
     const token = Cookies.get('spotifyAuthToken')
 
+    //get playlist id from the given id in the current url
     var playlist_id = window.location.pathname.split('_')[1]
     console.log(playlist_id)
 
+    //get tracks by playlist id
     axios(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks?market=nl`, {
       method: 'GET',
       headers: { 'Authorization': 'Bearer ' + token }
@@ -52,6 +57,7 @@ const League = () => {
     <div className="container">
       <h3>Songs</h3>
       <div className="Playlistlist">
+        {/* Generate a card for every playlist or track with corresponding details */}
         {playlists.map(playlist =>
           <div className="PlaylistCard"  key={playlist.track.id}>
             {/*<a href={`/player_${playlist_id}_${playlist.track.id}`}>*/}
@@ -77,6 +83,7 @@ const League = () => {
                   </div>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
+                  {/* Track performance details go here */ }
                   <Card.Body>Music league track performance details</Card.Body>
                 </Accordion.Collapse>
               </Card>

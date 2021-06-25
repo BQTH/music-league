@@ -4,6 +4,7 @@ function StartSession() {
     console.log('Session started')
 }
 
+//start sessions button used to fire a function in the backend
 const StartSessionBtn = () => {
   return (
       <div className="StartBtn" onClick={StartSession()}>
